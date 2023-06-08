@@ -5,4 +5,3 @@ blankProjectLoad();
 
 initialdomManip();
 
-console.log("hsh");
