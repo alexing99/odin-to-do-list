@@ -1,8 +1,14 @@
 export const blankProjectLoad = () => {
   let projectsArray = [];
-  let projectTitle = "Untitled Project";
-  let proj2 = "Proj 2";
-  projectsArray.push({ projectTitle });
-  projectsArray.push({ proj2 });
-  return { projectsArray, projectTitle };
+
+  projectsArray.push("Proj1");
+  projectsArray.push("Proj2");
+  return { projectsArray };
 };
+
+function addToArray() {
+  projectsArray.push(document.getElementById("projInput").value);
+  console.log("hh");
+}
+
+export { addToArray };

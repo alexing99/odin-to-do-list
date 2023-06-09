@@ -26,11 +26,6 @@ export function initialdomManip() {
   sideHead.textContent = "Projects";
   sidebar.appendChild(sideHead);
 
-  // // DOM for the default project load
-  // const projectsList = document.createElement("div");
-  // projectsList.textContent = blankProjectLoad().projectTitle;
-  // contentDiv.appendChild(projectsList);
-
   const projList = document.createElement("ul");
   projList.innerHTML = listArray(blankProjectLoad().projectsArray);
   sidebar.appendChild(projList);
@@ -39,14 +34,28 @@ export function initialdomManip() {
     let items = "";
     for (let i = 0; i < arg.length; i++) {
       items += `<li>${arg[i.toString()]}</li>`;
-      console.log(arg[i.toString()]);
-      console.log(blankProjectLoad().projectTitle.toString());
     }
 
     return items;
   }
 
   const addProj = document.createElement("button");
+  addProj.classList.add("addProj");
   addProj.textContent = "Add Project";
   sidebar.appendChild(addProj);
+
+  const newProjDiv = document.createElement("div");
+  newProjDiv.setAttribute("id", "newProjDiv");
+  newProjDiv.style.display = "none";
+  sidebar.appendChild(newProjDiv);
+
+  const projInput = document.createElement("input");
+  projInput.setAttribute("id", "projInput");
+  const addButt = document.createElement("button");
+  addButt.setAttribute("id", "addButt");
+  const cancelButt = document.createElement("button");
+  cancelButt.setAttribute("id", "cancelButt");
+  newProjDiv.appendChild(projInput);
+  newProjDiv.appendChild(addButt);
+  newProjDiv.appendChild(cancelButt);
 }
