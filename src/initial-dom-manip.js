@@ -1,4 +1,5 @@
-import { blankProjectLoad } from "./blank-project-load.js";
+// import { blankProjectLoad } from "./blank-project-load.js";
+import { projectsArray } from "./blank-project-load";
 
 export function initialdomManip() {
   const contentDiv = document.querySelector("#content");
@@ -27,17 +28,8 @@ export function initialdomManip() {
   sidebar.appendChild(sideHead);
 
   const projList = document.createElement("ul");
-  projList.innerHTML = listArray(blankProjectLoad().projectsArray);
+  projList.classList.add("projList");
   sidebar.appendChild(projList);
-
-  function listArray(arg) {
-    let items = "";
-    for (let i = 0; i < arg.length; i++) {
-      items += `<li>${arg[i.toString()]}</li>`;
-    }
-
-    return items;
-  }
 
   const addProj = document.createElement("button");
   addProj.classList.add("addProj");
@@ -51,11 +43,35 @@ export function initialdomManip() {
 
   const projInput = document.createElement("input");
   projInput.setAttribute("id", "projInput");
+
   const addButt = document.createElement("button");
   addButt.setAttribute("id", "addButt");
+
   const cancelButt = document.createElement("button");
   cancelButt.setAttribute("id", "cancelButt");
+
   newProjDiv.appendChild(projInput);
   newProjDiv.appendChild(addButt);
   newProjDiv.appendChild(cancelButt);
 }
+
+const updateProjList = () => {
+  const sidebar = document.querySelector(".sidebar");
+  const projList = document.querySelector(".projList");
+
+  projList.innerHTML = listArray(projectsArray);
+  sidebar.appendChild(projList);
+
+  function listArray(arg) {
+    projList.innerHTML = "";
+    sidebar.appendChild(projList);
+    let items = "";
+    for (let i = 0; i < arg.length; i++) {
+      items += `<li>${arg[i.toString()]}</li>`;
+    }
+
+    return items;
+  }
+};
+
+export { updateProjList };

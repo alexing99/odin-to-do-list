@@ -1,14 +1,13 @@
-export const blankProjectLoad = () => {
-  let projectsArray = [];
+// const blankProjectLoad = () => {
+//   export let projectsArray = [];
 
-  projectsArray.push("Proj1");
-  projectsArray.push("Proj2");
-  return { projectsArray };
-};
+//   projectsArray.push("Proj1");
+//   projectsArray.push("Proj2");
 
-function addToArray() {
-  projectsArray.push(document.getElementById("projInput").value);
-  console.log("hh");
-}
+//   return { projectsArray };
+// };
 
-export { addToArray };
+export let projectsArray = [];
+
+projectsArray.push("Proj1");
+projectsArray.push("Proj2");

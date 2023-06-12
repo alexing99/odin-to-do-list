@@ -1,6 +1,6 @@
 import { initialdomManip } from "./initial-dom-manip";
-import { blankProjectLoad } from "./blank-project-load";
-import { addToArray } from "./blank-project-load";
+import { projectsArray } from "./blank-project-load";
+import { updateProjList } from "./initial-dom-manip";
 
 export const createProject = () => {
   const projButt = document.querySelector(".addProj");
@@ -17,16 +17,15 @@ export const createProject = () => {
   }
 
   function closeProjInput() {
+    document.getElementById("projInput").value = "";
     document.getElementById("newProjDiv").style.display = "none";
   }
 
-  // function addToArray() {
-  //   blankProjectLoad().projectsArray.push(
-  //     document.getElementById("projInput").value
-  //   );
-  //   return {}
-
-  console.log(blankProjectLoad().projectsArray);
-  console.log(document.getElementById("projInput").value.toString());
+  function addToArray() {
+    projectsArray.push(document.getElementById("projInput").value);
+    console.log(projectsArray);
+    updateProjList();
+    closeProjInput();
+    return {};
+  }
 };
-// };
