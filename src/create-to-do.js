@@ -20,7 +20,7 @@ function addToDo() {
     document.querySelector("#title").value,
     document.querySelector("#description").value,
     document.querySelector("#dueDate").value,
-    document.querySelector("#check").value
+    false
   );
   toDoArray.push(newToDo);
   console.log(toDoArray);

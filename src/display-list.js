@@ -17,3 +17,14 @@ export const displayList = () => {
     return items;
   }
 };
+
+const selectProject = () => {
+  let projs = document.querySelectorAll("li");
+  projs.addEventListener("click", sayHi);
+};
+
+function sayHi() {
+  console.log("hi");
+}
+
+export { selectProject };
