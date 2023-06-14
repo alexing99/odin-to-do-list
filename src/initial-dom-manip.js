@@ -1,4 +1,3 @@
-// import { blankProjectLoad } from "./blank-project-load.js";
 import { projectsArray } from "./blank-project-load";
 
 export function initialdomManip() {

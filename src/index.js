@@ -4,6 +4,7 @@ import { createProject } from "./create-project";
 import { createToDo } from "./create-to-do";
 import { addToDo } from "./create-to-do";
 import { closeForm } from "./create-to-do";
+// import { displayList } from "./display-list";
 
 // blankProjectLoad();
 
@@ -17,4 +18,4 @@ createToDo();
 
 closeForm();
 
-addToDo();
+// displayList();

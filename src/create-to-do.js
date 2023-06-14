@@ -1,11 +1,19 @@
+import { displayList } from "./display-list";
+
 let toDoArray = [];
 
 export const createToDo = (Title, Description, DueDate, Checklist) => {
-  toDoArray.push({ Title, Description, DueDate, Checklist });
+  // toDoArray.push({ Title, Description, DueDate, Checklist });
   return { Title, Description, DueDate, Checklist };
 };
 
 const toDoo = createToDo("grocery", "buy groceries", "tomorrow", false);
+toDoArray.push(toDoo);
+
+function closeForm() {
+  const subButt = document.querySelector("#subButt");
+  subButt.addEventListener("click", addToDo);
+}
 
 function addToDo() {
   const newToDo = createToDo(
@@ -14,21 +22,11 @@ function addToDo() {
     document.querySelector("#dueDate").value,
     document.querySelector("#check").value
   );
-  // let title = document.querySelector("#title").value;
-  // let description = document.querySelector("#description").value;
-  // let dueDate = document.querySelector("#dueDate").value;
-  // let check = document.querySelector("#check").value;
-  // let newToDo = new createToDo(title, description, dueDate, check);
-  // toDoArray.push(newToDo);
-  console.log("hi");
-}
-
-function closeForm() {
-  const subButt = document.querySelector("#subButt");
-  subButt.addEventListener("click", addToDo);
-  console.log("bet");
+  toDoArray.push(newToDo);
   console.log(toDoArray);
+  displayList();
 }
 
 export { closeForm };
 export { addToDo };
+export { toDoArray };

@@ -1,4 +1,3 @@
-import { initialdomManip } from "./initial-dom-manip";
 import { projectsArray } from "./blank-project-load";
 import { updateProjList } from "./initial-dom-manip";
 
