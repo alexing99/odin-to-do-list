@@ -24,6 +24,9 @@ function addToDo() {
   );
   toDoArray.push(newToDo);
   console.log(toDoArray);
+  document.querySelector("#title").value = "";
+  document.querySelector("#description").value = "";
+  document.querySelector("#dueDate").value = "";
   displayList();
 }
 

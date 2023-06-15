@@ -15,3 +15,7 @@
 .toDoList li {
   border: 1px solid black;
 }
+
+.listItems {
+  font: 600;
+}

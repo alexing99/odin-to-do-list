@@ -52,6 +52,9 @@ export function initialdomManip() {
   newProjDiv.appendChild(projInput);
   newProjDiv.appendChild(addButt);
   newProjDiv.appendChild(cancelButt);
+
+  const toDoDiv = document.createElement("div");
+  toDoDiv.classList.add("toDoDiv");
 }
 
 const updateProjList = () => {
