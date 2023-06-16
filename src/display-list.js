@@ -25,16 +25,15 @@ export const displayList = () => {
     return items;
   }
   deleteItems();
+  console.log("hiiii");
 };
 
 const deleteItems = () => {
   const removeFromList = (e) => {
-    console.log(e.target.id);
     const indexArr = e.target.id.split("");
     const index = indexArr[10];
     toDoArray.splice(index, 1);
     displayList();
-    console.log("clicky");
   };
   if (toDoArray.length != 0) {
     const deleteItemButt = document.querySelectorAll('[id *= "deleteItem"]');
@@ -42,7 +41,12 @@ const deleteItems = () => {
   }
 };
 
-export { deleteItems };
+const changeProject = () => {
+  const selectedProj = document.querySelectorAll('[id ^= "proj');
+  selectedProj.forEach((e) => e.addEventListener("click", displayList));
+};
+
+export { deleteItems, changeProject };
 
 // const selectProject = () => {
 // //   let projs = document.querySelectorAll("li");

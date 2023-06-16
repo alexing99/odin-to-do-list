@@ -25,6 +25,23 @@ export const createProject = () => {
     console.log(projectsArray);
     updateProjList();
     closeProjInput();
+    deleteProject();
     return {};
   }
 };
+
+const deleteProject = () => {
+  const removeProj = (e) => {
+    const indexProj = e.target.id.split("");
+    const index = indexProj[10];
+    projectsArray.splice(index, 1);
+    updateProjList();
+    deleteProject();
+  };
+  if (projectsArray.length != 0) {
+    const deleteProjButt = document.querySelectorAll('[id *= "deleteProj"]');
+    deleteProjButt.forEach((e) => e.addEventListener("click", removeProj));
+  }
+};
+
+export { deleteProject };

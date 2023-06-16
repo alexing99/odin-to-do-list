@@ -69,7 +69,9 @@ const updateProjList = () => {
     sidebar.appendChild(projList);
     let items = "";
     for (let i = 0; i < arg.length; i++) {
-      items += `<li>${arg[i.toString()]}</li>`;
+      items += `<li id=proj${i}>${
+        arg[i.toString()]
+      }<button id="deleteProj${i}" ></li>`;
     }
 
     return items;
