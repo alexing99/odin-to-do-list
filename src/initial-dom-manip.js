@@ -41,7 +41,7 @@ export function initialdomManip() {
   sidebar.appendChild(newProjDiv);
 
   const projInput = document.createElement("input");
-  projInput.setAttribute("id", "projInput");
+  projInput.setAttribute("id", "newProjInput");
 
   const addButt = document.createElement("button");
   addButt.setAttribute("id", "addButt");
@@ -69,9 +69,7 @@ const updateProjList = () => {
     sidebar.appendChild(projList);
     let items = "";
     for (let i = 0; i < arg.length; i++) {
-      items += `<li id=proj${i}>${
-        arg[i.toString()]
-      }<button id="deleteProj${i}" ></li>`;
+      items += `<li id=proj${i}>${arg[i].projName}<button id="deleteProj${i}" ></li>`;
     }
 
     return items;

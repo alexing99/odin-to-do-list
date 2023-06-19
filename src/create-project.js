@@ -1,7 +1,13 @@
 import { projectsArray } from "./blank-project-load";
 import { updateProjList } from "./initial-dom-manip";
+import { changeProject } from "./display-list";
+import { currentArray } from "./blank-project-load";
 
-export const createProject = () => {
+export const createProjectFactory = (projName, projArray) => {
+  return { projName, projArray };
+};
+
+const createProject = () => {
   const projButt = document.querySelector(".addProj");
   projButt.addEventListener("click", openProjInput);
 
@@ -16,16 +22,33 @@ export const createProject = () => {
   }
 
   function closeProjInput() {
-    document.getElementById("projInput").value = "";
+    document.getElementById("newProjInput").value = "";
     document.getElementById("newProjDiv").style.display = "none";
   }
 
   function addToArray() {
-    projectsArray.push(document.getElementById("projInput").value);
-    console.log(projectsArray);
+    // console.log(projectsArray.length + 1);
+    // // const indexGrab = projectsArray.lenght + 1;
+    // let newArr = [0, 1, 2][([], [], [])];
+
+    // let thisArrayIndex = projectsArray.length + 1;
+
+    // //create the dom elements for the projects list by doing a for each function,
+    // //in that for
+    // //<ul>
+    // //{title: "new todo", items: []}
+    let newToDoArr = [];
+    const newProj = createProjectFactory(
+      document.getElementById("newProjInput").value,
+      newToDoArr
+    );
+    projectsArray.push(newProj);
+    // const lastInd = projectsArray.length;
+    currentArray = newToDoArr;
     updateProjList();
     closeProjInput();
     deleteProject();
+    changeProject();
     return {};
   }
 };
@@ -44,4 +67,4 @@ const deleteProject = () => {
   }
 };
 
-export { deleteProject };
+export { deleteProject, createProject };

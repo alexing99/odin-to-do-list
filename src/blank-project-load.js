@@ -1,4 +1,9 @@
+import { createProjectFactory } from "./create-project";
+
 export let projectsArray = [];
 
-projectsArray.push("Proj1");
-projectsArray.push("Proj2");
+let defaultArr = [];
+const defaultProject = createProjectFactory("Untitled Project", defaultArr);
+projectsArray.push(defaultProject);
+let currentArray = projectsArray[0].projArray;
+export { currentArray };
