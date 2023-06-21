@@ -40,6 +40,7 @@ const updateCurrentArray = (e) => {
 
     document.querySelectorAll('[id ^= "proj').forEach((i) => {
       i.style.border = "black 2px solid";
+      console.log("oh");
     });
 
     const currentProject = document.querySelector(`#proj${projNum}`);

@@ -50,6 +50,14 @@ const createProject = () => {
     changeProject();
     saveProjects();
 
+    document.querySelectorAll('[id ^= "proj').forEach((i) => {
+      i.style.border = "black 2px solid";
+    });
+
+    const newProjNum = projectsArray.length - 1;
+    const currentProject = document.querySelector(`#proj${newProjNum}`);
+    currentProject.style.border = "purple 5px solid";
+
     return { currentArray };
   }
 };
@@ -65,6 +73,14 @@ const deleteProject = () => {
     deleteProject();
     saveProjects();
     changeProject();
+    currentArray = projectsArray[0].projArray;
+    document.querySelectorAll('[id ^= "proj').forEach((i) => {
+      i.style.border = "black 2px solid";
+    });
+
+    const currentProject = document.querySelector(`#proj0`);
+    currentProject.style.border = "purple 5px solid";
+    displayList();
   };
   if (projectsArray.length != 0) {
     const deleteProjButt = document.querySelectorAll('[id *= "deleteProj"]');
