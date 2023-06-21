@@ -1,5 +1,6 @@
 import { projectsArray } from "./blank-project-load";
 import { currentArray } from "./blank-project-load";
+import { isHovered } from "./create-project";
 
 export const displayList = () => {
   const toDoDiv = document.querySelector("#toDoDiv");
@@ -19,26 +20,33 @@ export const displayList = () => {
         " " +
         arg[i].Description +
         " " +
-        arg[i].dueDate +
+        arg[i].DueDate +
         " " +
-        `<button id="deleteItem${[i]}">`
+        `<button id="deleteItem${[i]}"> X </button>`
       }</li>`;
     }
+
     return items;
   }
   deleteItems();
 };
 
 const updateCurrentArray = (e) => {
-  console.log("woozy");
-  let projNum = e.target.id.split("")[4];
-  currentArray = projectsArray[projNum].projArray;
+  if (isHovered) {
+    return;
+  } else {
+    let projNum = e.target.id.split("")[4];
+    currentArray = projectsArray[projNum].projArray;
 
-  // const allProjs = document.querySelectorAll('[id ^= "proj');
-  // allProjs.forEach((e) => {style.border = "black 2px solid";
-  // const currentProject = document.querySelector(`#proj${projNum}`);
-  // currentProject.style.border = "red 5px solid";
-  displayList();
+    document.querySelectorAll('[id ^= "proj').forEach((i) => {
+      i.style.border = "black 2px solid";
+    });
+
+    const currentProject = document.querySelector(`#proj${projNum}`);
+    currentProject.style.border = "purple 5px solid";
+    displayList();
+    console.log(currentArray);
+  }
 };
 
 const deleteItems = () => {
@@ -56,7 +64,6 @@ const deleteItems = () => {
 };
 
 const changeProject = () => {
-  console.log("suzy");
   const selectedProj = document.querySelectorAll('[id ^= "proj');
   selectedProj.forEach((e) => e.addEventListener("click", updateCurrentArray));
 };

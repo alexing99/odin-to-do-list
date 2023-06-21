@@ -19,3 +19,7 @@
 .listItems {
   font: 600;
 }
+
+.todo-form-popup {
+  display: none;
+}

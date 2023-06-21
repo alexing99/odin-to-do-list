@@ -14,13 +14,13 @@ export function initialdomManip() {
   sidebar.style.width = "500px";
   contentDiv.appendChild(sidebar);
 
-  const todayButt = document.createElement("button");
-  todayButt.textContent = "Today";
-  sidebar.appendChild(todayButt);
+  // const todayButt = document.createElement("button");
+  // todayButt.textContent = "Today";
+  // sidebar.appendChild(todayButt);
 
-  const weekButt = document.createElement("button");
-  weekButt.textContent = "This Week";
-  sidebar.appendChild(weekButt);
+  // const weekButt = document.createElement("button");
+  // weekButt.textContent = "This Week";
+  // sidebar.appendChild(weekButt);
 
   const sideHead = document.createElement("h2");
   sideHead.textContent = "Projects";
@@ -45,9 +45,11 @@ export function initialdomManip() {
 
   const addButt = document.createElement("button");
   addButt.setAttribute("id", "addButt");
+  addButt.textContent = "Add";
 
   const cancelButt = document.createElement("button");
   cancelButt.setAttribute("id", "cancelButt");
+  cancelButt.textContent = "Cancel";
 
   newProjDiv.appendChild(projInput);
   newProjDiv.appendChild(addButt);
@@ -69,7 +71,7 @@ const updateProjList = () => {
     sidebar.appendChild(projList);
     let items = "";
     for (let i = 0; i < arg.length; i++) {
-      items += `<li id=proj${i}>${arg[i].projName}<button id="deleteProj${i}" ></li>`;
+      items += `<li id=proj${i}>${arg[i].projName}         <button id="deleteProj${i}" >X</button></li>`;
     }
 
     return items;
